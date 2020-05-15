@@ -12,7 +12,6 @@ def read_file(filename):
 
 def data_dict(file):
 	dict1 ={}
-	count1 = 0
 	for line1 in file:
 		data_split = line1.split(' ')
 		for line2 in data_split:
@@ -20,20 +19,18 @@ def data_dict(file):
 				dict1[line2] += 1
 			else:
 				dict1[line2] = 1
-			count1 += 1
-			# if count1 % 100000 == 0:
-			# 	print('dictcount:', count1)	
 	return dict1
 			
-		
 
 data = read_file('original.txt')
 print('增加字典中...')
 dict1 = data_dict(data)
-# print(dict1)
 while True:
-	word = str(input('想搜尋的字母:'))
+	word = input('想搜尋的字母:')
 	if word == 'q':
 		break
 	else:
-		print(dict1[word], '個')
+		if word in dict1:
+			print(dict1[word], '個')
+		else:
+			print('沒有這個字')
