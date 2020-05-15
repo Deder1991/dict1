@@ -1,3 +1,5 @@
+import time
+
 def read_file(filename):
 	count = 0
 	data =[]
@@ -12,6 +14,7 @@ def read_file(filename):
 
 def data_dict(file):
 	dict1 ={}
+	star_time = time.time()
 	for line1 in file:
 		data_split = line1.split(' ')
 		for line2 in data_split:
@@ -19,6 +22,8 @@ def data_dict(file):
 				dict1[line2] += 1
 			else:
 				dict1[line2] = 1
+	end_time = time.time()
+	print('花費了', end_time - star_time, '秒')
 	return dict1
 			
 
